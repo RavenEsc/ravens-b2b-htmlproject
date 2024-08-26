@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>B2B Entry Assessment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            /* Sets the general background color and buffer under the menu (header tag) */
+            body {
+                background-color: cornsilk;
+            }
+            /* Sets the Header (h1 tag) font color and centers it */
+            h1 {
+                color: darkblue;
+                text-align: center;
+                margin-top: 10%;
+            }
+            /* Sets the footer styling */
+            footer {
+                background-color: white;
+                position: fixed;
+                width: 100%; /* Full width */
+                padding: 1%;
+                text-align: center;
+                bottom: 0;
+                left: 0;
+            }
+
+        /* DESKTOP STYLING :: Screen Width = ???px */
+
+            /* Sets the menu styling for Desktop */
+            header {
+                background-color: lightblue;
+                font-size: large;
+                position: fixed; /* Set the navbar to fixed position */
+                top: 0; /* Positions the navbar at the top of the page */
+                left: 50%;
+                transform: translate(-50%);
+                width: 100%;
+                min-height: 40px;
+            }
+            /* Sets up the flex containers and positioning for Desktop */
+            .flex-navbar {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+            /* Sets the buttons for the hyperlinks to other sites */
+            .flex-navbar a {
+                text-decoration: none;
+                color: black;
+                background-color: lightblue;
+                position: relative;
+                text-align: center;
+                padding: 5px;
+                width: 50%;
+                min-height: 20px;
+            }
+            /* Adds a divider between each button */
+            .flex-navbar a:not(:last-child) {
+                border-right: 5px solid rgba(0, 139, 139, 0.304);
+            }
+            /* Adds mouse hovering styling to the buttons */
+            .flex-navbar a:hover {
+                background: #2f92bc6e;
+                color: darkslategrey;
+            }
+
+        /* MOBILE STYLING :: Screen Width = ???px */
+
+        </style>
+    </head>
+    <header class="flex-navbar">
+        <a href="https://www.linkedin.com/in/raven-spencer-a0a558241/" target="_blank">My LinkedIn</a>
+        <!-- <a href="#" target="_blank">1.5</a> -->
+        <a href="https://github.com/RavenEsc" target="_blank">My GitHub</a>
+        <!-- <a href="#" target="_blank">2.5</a> -->
+        <a href="https://www.ravens-resume-crc.com/" target="_blank">My Website</a>
+        <!-- <a href="#" target="_blank">3.5</a> -->
+        <a href="https://dev.to/ravenesc" target="_blank">My DevBlog</a>
+    </header>
+    <body>
+
+        <h1>My First HTML Page</h1>
+    </body>
+    <footer>
+        <contacts>
+            Written by:
+            Raven Spencer <br><br>
+            For Questions or Comments, Email me at: <br>
+            <a href="mailto:raven.spen00@gmail.com">raven.spen00@gmail.com</a>
+       </contacts>
+    </footer>
+</html>
