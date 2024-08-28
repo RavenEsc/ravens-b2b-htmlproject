@@ -11,4 +11,4 @@ This is where I will work on my assignment for the B2B YS program. Fulfilling th
 
 4.Centered menu with 4 buttons light blue with black text labels (descriptive) with links to 4 external websites of your choice. Links must open in a new window or tab using the target="_blank" attribute. [X]
 
-5.A simple HTML table with a Header containing Firstname, Lastname, City, State, and Birth Month.  The table must have 5 elements centered under each column.  You make up names and etc. []
+5.A simple HTML table with a Header containing Firstname, Lastname, City, State, and Birth Month.  The table must have 5 elements centered under each column.  You make up names and etc. [X]
