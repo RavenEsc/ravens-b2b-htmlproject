@@ -7,7 +7,7 @@
         <style>
             /* Sets the general background color and buffer under the menu (header tag) */
             body {
-                background-color: cornsilk;
+                background-color: yellowgreen;
             }
             /* Sets the Header (h1 tag) font color and centers it */
             h1 {
@@ -27,21 +27,14 @@
                 text-align: center;
                 bottom: 0;
                 left: 0;
+                z-index: 3;
             }
-            #showButton {
-                display: flex;
-            }
+            
 
         /* DESKTOP STYLING :: Screen Width = >570px */
             
             @media screen and (min-width: 571px) {
                 /* Sets the menu styling for Desktop AND */
-                #menuButton {
-                    display: none;
-                }
-                #navMenu {
-                    display: flex;
-                }
                 /* Sets up the flex containers and positioning for Desktop */
                 .flex-navbar {
                     display: flex;
@@ -79,30 +72,67 @@
 
             @media screen and (max-width: 570px) {
                 #menuButton {
-                    display: flex;
+                    display: block;
                     position: fixed;
                     left: 50%;
                     translate: -50%;
-
+                    background-color: lightblue;
+                    border-color: green;
+                    border-width: 5px;
+                    border-radius: 15%;
+                    max-width: 50%;
+                    min-width: 30%;
+                    max-height: 6%;
+                    min-height: 45px;
+                    z-index: 2;
+                    text-align: center;
+                    font-size: x-large;
+                    font-weight: bolder;
                 }
-                #navMenu {
-                    display: none;
+                #menuButton:hover {
+                    color: whitesmoke;
+                    font-size: large;
+                    font-weight: bold;
+                }
+                .mobileMenuShadowHide {
+                    display: block;
+                    z-index: 1;
+                    background-color: rgba(112, 112, 112, 0.5);
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0%;
+                    transition: height .25s;
+                }
+                .mobileMenuShadow {
+                    display: block;
+                    z-index: 1;
+                    background-color: rgba(69, 69, 69, 0.5);
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: height .5s;
                 }
                 .flex-navbar {
                     display: none;
+                }
+                .flex-navbar-visible {
+                    display: flex;
                     flex-direction: column;
                     align-items: center;
                     font-size: 2em;
                     position: fixed; /* Set the navbar to fixed position */
-                    top: 9%; /* Positions the navbar at the top of the page */
+                    top: 15%; /* Positions the navbar at the top of the page */
                     left: 50%;
                     translate: -50%;
                     width: 50%;
                     min-width: 180px;
-                    z-index: 1;
-                    transition: width 1s;
+                    z-index: 2;
                 }
-                .flex-navbar a {
+                .flex-navbar-visible a {
                     text-decoration: none;
                     color: black;
                     background-color: lightblue;
@@ -112,13 +142,13 @@
                     width: 100%;
                     min-height: 40px;
                 }
-                .flex-navbar a:not(:last-child) {
+                .flex-navbar-visible a:not(:last-child) {
                     border-bottom: 5px solid cadetblue;
                     border-right: none;
                 }
-                .flex-navbar a:hover {
+                .flex-navbar-visible a:hover {
                     color: whitesmoke;
-                    z-index: 1;
+                    z-index: 2;
                 }
             }
 
@@ -133,7 +163,8 @@
         <!-- <a href="#" target="_blank">3.5</a> -->
         <a href="https://dev.to/ravenesc" target="_blank">My DevBlog</a>
     </header>
-    <button onclick="toggleMenu()" id="menuButton">Show Menu</button>
+    <button onclick="toggleMenu()" id="menuButton">Menu</button>
+    <area class="mobileMenuShadowHide" id="shadowBackground">
     <body>
 
         <h1>My First HTML Page</h1>
@@ -147,32 +178,54 @@
        </contacts>
     </footer>
     <script>
-        
         function toggleMenu() {
             // Gets the menu
             let menuButton = document.getElementById('menuButton');
-
             // Gets the menu button
             let navMenu = document.getElementById('navMenu');
-
             // Gets the current value of the "display" property
-            let displayConfig = navMenu.style.display;
+            let displayConfig = navMenu.className;
+            // Gets the shadow area element for focus effect
+            let shadowFocus = document.getElementById('shadowBackground');
 
             // now toggle the menu and the button text, depending on current state
-            if (displayConfig == 'flex') {
+            if (displayConfig == 'flex-navbar-visible') {
             // menu is visible. hide it
-            navMenu.style.display = 'none';
+            navMenu.className = 'flex-navbar';
             // change button text
-            menuButton.innerHTML = 'Show Menu';
+            menuButton.innerHTML = 'Menu';
+            // Remove shadow from the background
+            shadowFocus.className = 'mobileMenuShadowHide';
             }
             else {
+                                                // console.log(displayConfig) is what I used to debug my function when it said only false
             // menu is hidden. show it
-            navMenu.style.display = 'flex';
+            navMenu.className = 'flex-navbar-visible';
             // change button text
             menuButton.innerHTML = 'Hide Menu';
+                                                // console.log(shadowFocus); is what I used to debug my shadow background (I accidentally capitalized the 'C' in 'className')
+            // Add shadow to the background
+            shadowFocus.className = 'mobileMenuShadow';
+            }
+        }
+        function myFunction(x) {
+            if (x.matches) { // If media query matches
+                document.body.style.backgroundColor = "";
+            } else {
+                document.body.style.backgroundColor = "pink";
+                navMenu.className = 'flex-navbar';
+            }
             }
 
-        }
-        
+            // Create a MediaQueryList object
+            var x = window.matchMedia("(max-width: 570px)")
+
+            // Call listener function at run time
+            myFunction(x);
+
+            // Attach listener function on state changes
+            x.addEventListener("change", function() {
+            myFunction(x);
+            });
     </script>
 </html>
