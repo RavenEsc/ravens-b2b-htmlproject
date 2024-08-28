@@ -8,28 +8,56 @@
             /* Sets the general background color and buffer under the menu (header tag) */
             body {
                 background-color: yellowgreen;
+                margin: 0%;
             }
             /* Sets the Header (h1 tag) font color and centers it */
             h1 {
                 color: darkblue;
                 text-align: center;
-                position: relative;
+                position: static;
                 font-size-adjust: 1;
                 top: 3rem;
                 width: 100%;
             }
             /* Sets the footer styling */
             footer {
+                position: relative;
                 background-color: white;
-                position: fixed;
-                width: 100%; /* Full width */
                 padding: 1%;
                 text-align: center;
-                bottom: 0;
-                left: 0;
                 z-index: 3;
+                clear: both;
             }
-            
+            .stylizedParagraphLeft {
+                display: block;
+                background-color: white;
+                font-size: large;
+                font-weight: bold;
+                padding: 3px;
+                min-width: 50%;
+                max-width: 98%;
+                float: left;
+            }
+            .stylizedParagraphRight {
+                display: block;
+                background-color: white;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 4px;
+                min-width: 50%;
+                max-width: 98%;
+                float: right;
+                text-align: center;
+            }
+            img {
+                width: 200px;
+                height: 300px;
+                padding: 0px;
+            }
+            .img-left {
+            }
+            .img-right {
+            }
 
         /* DESKTOP STYLING :: Screen Width = >570px */
             
@@ -73,7 +101,8 @@
             @media screen and (max-width: 570px) {
                 #menuButton {
                     display: block;
-                    position: fixed;
+                    position: relative;
+                    margin-top: 5%;
                     left: 50%;
                     translate: -50%;
                     background-color: lightblue;
@@ -168,15 +197,28 @@
     <body>
 
         <h1>My First HTML Page</h1>
+        <p class="stylizedParagraphLeft">
+             This is my relative paragraph. It has taken a while of
+             building and researching more into http, css, and 
+             even javascript functions!<br><br> Using my knowledge in a 
+             project where I can showcase my skills has been an 
+             enlightening experience.<br><br> Thank you for giving me 
+             criteria to fulfill and a project to challenge my 
+             abilities! Here is to more like this in the future!
+        </p>
+        <p class="stylizedParagraphRight">
+            <img class="img-left" src="https://img.freepik.com/free-photo/kitty-with-monochrome-wall-her_23-2148955134.jpg" alt="curious-cat-image">
+            <img class="img-right" src="https://media.istockphoto.com/id/1503385646/photo/portrait-funny-and-happy-shiba-inu-puppy-dog-peeking-out-from-behind-a-blue-banner-isolated.jpg?s=612x612&w=0&k=20&c=xZq8PhunL9ZmY243et3GOf04wJPBmHzeiQ3jw7nWCrY=" alt="happy-dog-image">
+        </p>
+        <footer>
+            <p>
+                Written by:
+                Raven Spencer <br><br>
+                For Questions or Comments, Email me at: <br>
+                <a href="mailto:raven.spen00@gmail.com">raven.spen00@gmail.com</a>
+            </p>
+        </footer>
     </body>
-    <footer>
-        <contacts>
-            Written by:
-            Raven Spencer <br><br>
-            For Questions or Comments, Email me at: <br>
-            <a href="mailto:raven.spen00@gmail.com">raven.spen00@gmail.com</a>
-       </contacts>
-    </footer>
     <script>
         function toggleMenu() {
             // Gets the menu

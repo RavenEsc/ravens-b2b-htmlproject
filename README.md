@@ -5,9 +5,9 @@ This is where I will work on my assignment for the B2B YS program. Fulfilling th
 
 1.Heading centered H1 with text "My First HTML Page" color dark blue. [X]
 
-2.Paragraph with at least 30 words describing the page.  You can copy text from anywhere or make it up. []
+2.Paragraph with at least 30 words describing the page.  You can copy text from anywhere or make it up. [X]
 
-3.Two pictures from the image library folder side by side 200x300 pixels each with alt text description. []
+3.Two pictures from the image library folder side by side 200x300 pixels each with alt text description. [X]
 
 4.Centered menu with 4 buttons light blue with black text labels (descriptive) with links to 4 external websites of your choice. Links must open in a new window or tab using the target="_blank" attribute. [X]
 
