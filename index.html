@@ -13,7 +13,10 @@
             h1 {
                 color: darkblue;
                 text-align: center;
-                margin-top: 10%;
+                position: relative;
+                font-size-adjust: 1;
+                top: 3rem;
+                width: 100%;
             }
             /* Sets the footer styling */
             footer {
@@ -25,52 +28,103 @@
                 bottom: 0;
                 left: 0;
             }
-
-        /* DESKTOP STYLING :: Screen Width = ???px */
-
-            /* Sets the menu styling for Desktop */
-            header {
-                background-color: lightblue;
-                font-size: large;
-                position: fixed; /* Set the navbar to fixed position */
-                top: 0; /* Positions the navbar at the top of the page */
-                left: 50%;
-                transform: translate(-50%);
-                width: 100%;
-                min-height: 40px;
-            }
-            /* Sets up the flex containers and positioning for Desktop */
-            .flex-navbar {
+            #showButton {
                 display: flex;
-                flex-direction: row;
-                justify-content: center;
-            }
-            /* Sets the buttons for the hyperlinks to other sites */
-            .flex-navbar a {
-                text-decoration: none;
-                color: black;
-                background-color: lightblue;
-                position: relative;
-                text-align: center;
-                padding: 5px;
-                width: 50%;
-                min-height: 20px;
-            }
-            /* Adds a divider between each button */
-            .flex-navbar a:not(:last-child) {
-                border-right: 5px solid rgba(0, 139, 139, 0.304);
-            }
-            /* Adds mouse hovering styling to the buttons */
-            .flex-navbar a:hover {
-                background: #2f92bc6e;
-                color: darkslategrey;
             }
 
-        /* MOBILE STYLING :: Screen Width = ???px */
+        /* DESKTOP STYLING :: Screen Width = >570px */
+            
+            @media screen and (min-width: 571px) {
+                /* Sets the menu styling for Desktop AND */
+                #menuButton {
+                    display: none;
+                }
+                #navMenu {
+                    display: flex;
+                }
+                /* Sets up the flex containers and positioning for Desktop */
+                .flex-navbar {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    font-size: 1.5em;
+                    position: fixed; /* Set the navbar to fixed position */
+                    top: 0; /* Positions the navbar at the top of the page */
+                    left: 50%;
+                    translate: -50%;
+                    width: 100%;
+                    min-height: 40px;
+                }
+                /* Sets the buttons for the hyperlinks to other sites */
+                .flex-navbar a {
+                    text-decoration: none;
+                    color: black;
+                    background-color: lightblue;
+                    position: relative;
+                    text-align: center;
+                    padding: 5px;
+                    width: 50%;
+                    min-height: 20px;
+                }
+                /* Adds a divider between each button */
+                .flex-navbar a:not(:last-child) {
+                    border-right: 5px solid cadetblue;
+                }
+                /* Adds mouse hovering styling to the buttons */
+                .flex-navbar a:hover {
+                    color: whitesmoke;
+                }
+            }
+        /* MOBILE STYLING :: Screen Width = <570px */
+
+            @media screen and (max-width: 570px) {
+                #menuButton {
+                    display: flex;
+                    position: fixed;
+                    left: 50%;
+                    translate: -50%;
+
+                }
+                #navMenu {
+                    display: none;
+                }
+                .flex-navbar {
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 2em;
+                    position: fixed; /* Set the navbar to fixed position */
+                    top: 9%; /* Positions the navbar at the top of the page */
+                    left: 50%;
+                    translate: -50%;
+                    width: 50%;
+                    min-width: 180px;
+                    z-index: 1;
+                    transition: width 1s;
+                }
+                .flex-navbar a {
+                    text-decoration: none;
+                    color: black;
+                    background-color: lightblue;
+                    position: relative;
+                    text-align: center;
+                    padding: 10px;
+                    width: 100%;
+                    min-height: 40px;
+                }
+                .flex-navbar a:not(:last-child) {
+                    border-bottom: 5px solid cadetblue;
+                    border-right: none;
+                }
+                .flex-navbar a:hover {
+                    color: whitesmoke;
+                    z-index: 1;
+                }
+            }
 
         </style>
     </head>
-    <header class="flex-navbar">
+    <header class="flex-navbar" id="navMenu">
         <a href="https://www.linkedin.com/in/raven-spencer-a0a558241/" target="_blank">My LinkedIn</a>
         <!-- <a href="#" target="_blank">1.5</a> -->
         <a href="https://github.com/RavenEsc" target="_blank">My GitHub</a>
@@ -79,6 +133,7 @@
         <!-- <a href="#" target="_blank">3.5</a> -->
         <a href="https://dev.to/ravenesc" target="_blank">My DevBlog</a>
     </header>
+    <button onclick="toggleMenu()" id="menuButton">Show Menu</button>
     <body>
 
         <h1>My First HTML Page</h1>
@@ -91,4 +146,33 @@
             <a href="mailto:raven.spen00@gmail.com">raven.spen00@gmail.com</a>
        </contacts>
     </footer>
+    <script>
+        
+        function toggleMenu() {
+            // Gets the menu
+            let menuButton = document.getElementById('menuButton');
+
+            // Gets the menu button
+            let navMenu = document.getElementById('navMenu');
+
+            // Gets the current value of the "display" property
+            let displayConfig = navMenu.style.display;
+
+            // now toggle the menu and the button text, depending on current state
+            if (displayConfig == 'flex') {
+            // menu is visible. hide it
+            navMenu.style.display = 'none';
+            // change button text
+            menuButton.innerHTML = 'Show Menu';
+            }
+            else {
+            // menu is hidden. show it
+            navMenu.style.display = 'flex';
+            // change button text
+            menuButton.innerHTML = 'Hide Menu';
+            }
+
+        }
+        
+    </script>
 </html>
