@@ -2,80 +2,145 @@
 <html>
     <head>
         <title>B2B Entry Assessment</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html" charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta lang="en">
+        <link rel="icon" type="image/x-icon" href="https://cdn.iconscout.com/icon/free/png-256/free-tabs-icon-download-in-svg-png-gif-file-formats--ui-elements-pack-user-interface-icons-444283.png">
         
         <style>
+            /* variables for the most common values in the css for quick broad adjustments */
+            :root {
+                /* Theme Colors */
+                --blockColor1: white;
+                --textColor1: black;
+                --menuColor1: lightblue; /* !!!IMPORTANT!!! */
+                --menuColor2: black; /* !!!IMPORTANT!!! */
+                --menuColor3: cadetblue;
+                --menuColor4: whitesmoke;
+                --bgColorDesktop: gold;
+                --menuBorderColor: var(--bgColorDesktop);
+                --bgColorMobile: lightblue;
+                --headerColor: darkblue; /* !!!IMPORTANT!!! */
+            }
+
+            /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
             /* Sets the general background color and buffer under the menu (header tag) */
             body {
-                background-color: yellowgreen;
                 margin: 0%;
+                text-align: center; /* !!!IMPORTANT!!! */
             }
             /* Sets the Header (h1 tag) font color and centers it */
             h1 {
-                color: darkblue;
-                text-align: center;
+                color: var(--headerColor);
                 position: static;
                 font-size-adjust: .8;
-                top: 3rem;
-                width: 75%;
-                margin-left: 12.5%;
+                width: 75%; /* !!!IMPORTANT!!! */
+                margin-left: 12.5%; /* !!!IMPORTANT!!! */
                 margin-top: 5%;
-                background-color: white;
+                background-color: var(--blockColor1);
                 border-radius: 50%;
             }
             /* Sets the footer styling */
             footer {
                 position: relative;
-                background-color: white;
+                background-color: var(--blockColor1);
                 padding: 1%;
-                text-align: center;
                 z-index: 3;
                 clear: both;
             }
-            .stylizedParagraphLeft {
-                display: block;
-                background-color: white;
+            /* Sets the stlye for the pargraph segment (p) */
+            .stylizedParagraph {
+                background-color: var(--blockColor1);
                 font-size: large;
                 font-weight: bold;
+                text-align: left;
+                color: var(--textColor1);
                 padding: 10px;
                 min-width: 50%;
                 max-width: 98%;
                 float: left;
+                border-bottom-right-radius: 10%;
+                border-top-right-radius: 10%;
             }
-            .stylizedParagraphLeft2 {
-                display: block;
-                background-color: white;
-                font-size: large;
-                font-weight: bold;
-                padding: 10px;
-                min-width: 50%;
-                max-width: 98%;
-                margin-bottom: 10px;
-                float: left;
-            }
-            .stylizedParagraphRight {
-                display: block;
-                background-color: white;
+            /* Sets the stlye for the images segment (div) */
+            .stylizedImages {
+                background-color: var(--blockColor1);
                 padding-top: 10px;
                 padding-bottom: 10px;
                 padding-left: 4px;
+                margin-top: 10px;
+                margin-bottom: 10px;
                 min-width: 44%;
                 max-width: 75%;
                 float: right;
-                text-align: center;
+                border-bottom-left-radius: 2%;
+                border-top-left-radius: 2%;
             }
+            /* Sets the stlye for the table segment (div) */
+            .stylizedTable {
+                background-color: var(--blockColor1);
+                font-size: large;
+                font-weight: bold;
+                color: var(--textColor1);
+                padding: 10px;
+                min-width: 50%;
+                max-width: 98%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                float: left;
+                border-bottom-right-radius: 5%;
+                border-top-right-radius: 5%;
+            }
+            /* Sets the style for the images */
             img {
-                width: 200px;
-                height: 300px;
+                width: 200px; /* !!!IMPORTANT!!! */
+                height: 300px; /* !!!IMPORTANT!!! */
                 padding: 0px;
+                transition: transform 0.3s ease-in-out;
+            }
+            /* Adds a card-like effect */
+            img:hover {
+                transform: perspective(2000px) rotateY(17deg);
             }
 
-        /* DESKTOP STYLING :: Screen Width = >570px */
+            /* Common styling between the two screen sizes */
+            /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+            
+            /* Base style for the table element */
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            /* Base style for the table headers and cells */
+            td, th {
+                border: 2px solid #dddddd;
+                padding: 8px;
+                font-size: 95%;
+            }
+            /* Adjusts the cells to have a normal font weight */
+            td {
+                font-weight: normal;
+            }
+            /* Fun interactive animation for hovering or pressing the cells */
+            td:hover {
+                font-weight: bold;
+                color: crimson;
+                background-color: rgb(47, 0, 0);
+                transition: color 3s, background-color 20s;
+            }
+            /* Styles the table to have banded rows */
+            tr:nth-child(even) {
+                background-color: #e9e9e9;
+            }
+
+        /* DESKTOP STYLING :: Screen Width = >570px |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
             
             @media screen and (min-width: 571px) {
+                /* Adjusts the header to better fit the wide screen and menu above */
                 h1 {
-                    font-size-adjust: 1.5;
+                    font-size-adjust: 1.1;
                     margin-top: 3rem;
                 }
                 /* Sets the menu styling for Desktop AND */
@@ -91,55 +156,40 @@
                     translate: -50%;
                     width: 100%;
                     min-height: 40px;
+                    z-index: 1;
                 }
                 /* Sets the buttons for the hyperlinks to other sites */
                 .flex-navbar a {
                     text-decoration: none;
-                    color: black;
-                    background-color: lightblue;
+                    color: var(--menuColor2);
+                    background-color: var(--menuColor1);
                     position: relative;
-                    text-align: center;
                     padding: 5px;
                     width: 50%;
                     min-height: 20px;
                 }
                 /* Adds a divider between each button */
                 .flex-navbar a:not(:last-child) {
-                    border-right: 5px solid cadetblue;
+                    border-right: 5px solid var(--menuColor3);
                 }
                 /* Adds mouse hovering styling to the buttons */
                 .flex-navbar a:hover {
-                    color: whitesmoke;
-                }
-                table {
-                    font-family: arial, sans-serif;
-                    width: 100%;
-                    font-weight: bold;
-                    border-collapse: collapse;
-                }
-                td, th {
-                    border: 2px solid #dddddd;
-                    text-align: left;
-                    padding: 8px;
-                    font-size: 95%;
-                    text-align: center;
-                    font-weight: normal;
-                }
-                tr:nth-child(even) {
-                    background-color: #e9e9e9;
+                    color: var(--menuColor4);
                 }
             }
-        /* MOBILE STYLING :: Screen Width = <570px */
+
+        /* MOBILE STYLING :: Screen Width = <570px ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
             @media screen and (max-width: 570px) {
+                /* Sets the menu button look and position */
                 #menuButton {
                     display: block;
                     position: relative;
                     margin-top: 5%;
                     left: 50%;
                     translate: -50%;
-                    background-color: lightblue;
-                    border-color: green;
+                    background-color: var(--menuColor1);
+                    border-color: var(--menuBorderColor);
                     border-width: 5px;
                     border-radius: 15%;
                     max-width: 50%;
@@ -151,36 +201,39 @@
                     font-size: x-large;
                     font-weight: bolder;
                 }
+                /* Changes the look of the menu button when pressed or hovered */
                 #menuButton:hover {
-                    color: whitesmoke;
+                    color: var(--menuColor4);
                     font-size: large;
                     font-weight: bold;
                 }
-                .mobileMenuShadowHide {
+                /* Simplifies the shaded background for the mobile menu */
+                .shadow {
                     display: block;
                     z-index: 1;
-                    background-color: rgba(112, 112, 112, 0.5);
                     position: fixed;
                     top: 0;
                     left: 0;
                     width: 100%;
+                }
+                /* Hides and sets the hide transition for the mobile menu */
+                .mobileMenuShadowHide {
+                    background-color: rgba(112, 112, 112, 0.5);
                     height: 0%;
                     transition: height .25s;
                 }
+                /* Displays the shadow behind the mobile menu (slides down the screen transition) */
                 .mobileMenuShadow {
-                    display: block;
-                    z-index: 1;
                     background-color: rgba(69, 69, 69, 0.5);
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
                     height: 100%;
                     transition: height .5s;
                 }
+                /* Changes the menu from Desktop to the Mobile, hides the mobile menu buttons */
                 .flex-navbar {
                     display: none;
+                    border-radius: 5%;
                 }
+                /* Sets the menu button look, and makes them visible (for the javascript function 'toggleMenu') */
                 .flex-navbar-visible {
                     display: flex;
                     flex-direction: column;
@@ -193,61 +246,51 @@
                     width: 50%;
                     min-width: 180px;
                     z-index: 2;
+                    border-radius: 5%;
                 }
+                /* Sets the hyperlink button styles */
                 .flex-navbar-visible a {
                     text-decoration: none;
-                    color: black;
-                    background-color: lightblue;
+                    color: var(--menuColor2);
+                    background-color: var(--menuColor1);
                     position: relative;
                     text-align: center;
                     padding: 10px;
                     width: 100%;
                     min-height: 40px;
+                    border-radius: 5%;
+                    margin: 5px;
                 }
+                /* Adds a border to all except the last button */
                 .flex-navbar-visible a:not(:last-child) {
-                    border-bottom: 5px solid cadetblue;
+                    border-bottom: 5px solid var(--menuColor3);
                     border-right: none;
                 }
+                /* Adds an interactive hover psuedo class to the hyperlinks */
                 .flex-navbar-visible a:hover {
-                    color: whitesmoke;
+                    color: var(--menuColor4);
                     z-index: 2;
                 }
+                /* Adjusts the font-size of the table element for Mobile */
                 table {
-                    font-family: arial, sans-serif;
                     font-size: 65%;
-                    font-weight: bold;
-                    border-collapse: collapse;
-                }
-                td, th {
-                    border: 2px solid #dddddd;
-                    text-align: left;
-                    padding: 8px;
-                    font-size: 95%;
-                    text-align: center;
-                    font-weight: normal;
-                }
-                tr:nth-child(even) {
-                    background-color: #e9e9e9;
                 }
             }
 
         </style>
     </head>
     <header class="flex-navbar" id="navMenu">
-        <a href="https://www.linkedin.com/in/raven-spencer-a0a558241/" target="_blank">My LinkedIn</a>
-        <!-- <a href="#" target="_blank">1.5</a> -->
-        <a href="https://github.com/RavenEsc" target="_blank">My GitHub</a>
-        <!-- <a href="#" target="_blank">2.5</a> -->
-        <a href="https://www.ravens-resume-crc.com/" target="_blank">My Website</a>
-        <!-- <a href="#" target="_blank">3.5</a> -->
-        <a href="https://dev.to/ravenesc" target="_blank">My DevBlog</a>
+        <a href="https://www.linkedin.com/in/raven-spencer-a0a558241/" target="_blank">My LinkedIn</a> <!-- !!!IMPORTANT!!! -->
+        <a href="https://github.com/RavenEsc" target="_blank">My GitHub</a> <!-- !!!IMPORTANT!!! -->
+        <a href="https://www.ravens-resume-crc.com/" target="_blank">My Website</a> <!-- !!!IMPORTANT!!! -->
+        <a href="https://dev.to/ravenesc" target="_blank">My DevBlog</a> <!-- !!!IMPORTANT!!! -->
     </header>
     <button onclick="toggleMenu()" id="menuButton">Menu</button>
-    <area class="mobileMenuShadowHide" id="shadowBackground">
+    <area class="mobileMenuShadowHide shadow" id="shadowBackground">
     <body>
 
-        <h1>My First HTML Page</h1>
-        <p class="stylizedParagraphLeft">
+        <h1>My First HTML Page</h1> <!-- !!!IMPORTANT!!! -->
+        <p class="stylizedParagraph"> <!-- !!!IMPORTANT!!! -->
              This is my relative paragraph. It has taken a while of
              building and researching more into http, css, and 
              even javascript functions!<br><br> Using my knowledge in a 
@@ -256,48 +299,49 @@
              criteria to fulfill and a project to challenge my 
              abilities! Here is to more like this in the future!
         </p>
-        <p class="stylizedParagraphRight">
-            <img src="https://img.freepik.com/free-photo/kitty-with-monochrome-wall-her_23-2148955134.jpg" alt="curious-cat-image">
-            <img src="https://media.istockphoto.com/id/1503385646/photo/portrait-funny-and-happy-shiba-inu-puppy-dog-peeking-out-from-behind-a-blue-banner-isolated.jpg?s=612x612&w=0&k=20&c=xZq8PhunL9ZmY243et3GOf04wJPBmHzeiQ3jw7nWCrY=" alt="happy-dog-image">
-        </p>
-        <div class="stylizedParagraphLeft2">
-            <table>
-                <tr>
-                    <th style="font-weight: bold;" >FirstName</th>
-                    <th style="font-weight: bold;" >LastName</th>
-                    <th style="font-weight: bold;" >City</th>
-                    <th style="font-weight: bold;" >State</th>
-                    <th style="font-weight: bold;" >BirthMonth</th>
+        <div class="stylizedImages">
+            <img src="https://img.freepik.com/free-photo/kitty-with-monochrome-wall-her_23-2148955134.jpg" alt="curious-cat-image"> <!-- !!!IMPORTANT!!! -->
+            <img src="https://media.istockphoto.com/id/1503385646/photo/portrait-funny-and-happy-shiba-inu-puppy-dog-peeking-out-from-behind-a-blue-banner-isolated.jpg?s=612x612&w=0&k=20&c=xZq8PhunL9ZmY243et3GOf04wJPBmHzeiQ3jw7nWCrY=" alt="happy-dog-image"> <!-- !!!IMPORTANT!!! -->
+        </div>
+        <div class="stylizedTable">
+            <table> <!-- !!!IMPORTANT!!! -->
+                Watch out! Come too close and you'll burn the data!!
+                <tr> <!-- !!!IMPORTANT!!! -->
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>BirthMonth</th>
                 </tr>
-                <tr>
+                <tr> <!-- !!!IMPORTANT!!! -->
                     <td>Raven</td>
                     <td>Spencer</td>
                     <td>Princeton</td>
                     <td>MN</td>
                     <td>Jun</td>
                 </tr>
-                <tr>
+                <tr> <!-- !!!IMPORTANT!!! -->
                     <td>John</td>
                     <td>Doe</td>
                     <td>Hempstead</td>
                     <td>NY</td>
                     <td>Aug</td>
                 </tr>
-                <tr>
+                <tr> <!-- !!!IMPORTANT!!! -->
                     <td>Cory</td>
                     <td>Dandy</td>
                     <td>Middletown</td>
                     <td>DE</td>
                     <td>Feb</td>
                 </tr>
-                <tr>
+                <tr> <!-- !!!IMPORTANT!!! -->
                     <td>Meadow</td>
                     <td>Smith</td>
                     <td>Troy</td>
                     <td>OH</td>
                     <td>Nov</td>
                 </tr>
-                <tr>
+                <tr> <!-- !!!IMPORTANT!!! -->
                     <td>Will</td>
                     <td>Summers</td>
                     <td>Luverne</td>
@@ -316,6 +360,8 @@
         </footer>
     </body>
     <script>
+
+        // This Javascript function runs on a click from the mobile screen Menu button
         function toggleMenu() {
             // Gets the menu
             let menuButton = document.getElementById('menuButton');
@@ -333,37 +379,53 @@
             // change button text
             menuButton.innerHTML = 'Menu';
             // Remove shadow from the background
-            shadowFocus.className = 'mobileMenuShadowHide';
+            shadowFocus.className = 'mobileMenuShadowHide shadow';
             }
             else {
-                                                // console.log(displayConfig) is what I used to debug my function when it said only false
+        // console.log(displayConfig) is what I used to debug my function when it said only false
             // menu is hidden. show it
             navMenu.className = 'flex-navbar-visible';
             // change button text
             menuButton.innerHTML = 'Hide Menu';
-                                                // console.log(shadowFocus); is what I used to debug my shadow background (I accidentally capitalized the 'C' in 'className')
+        // console.log(shadowFocus); is what I used to debug my shadow background (I accidentally capitalized the 'C'
+        // in 'className')
             // Add shadow to the background
-            shadowFocus.className = 'mobileMenuShadow';
+            shadowFocus.className = 'mobileMenuShadow shadow';
             }
         }
-        function myFunction(x) {
+
+        // This javascript function automatically adjusts the menu class, no matter the state, to hide the mobile menu
+        // and switch to the desktop view
+        // Fixes an error where the mobile class switcher to onClick function above messes up the desktop menu if
+        // adjusting screen width
+        // I also utilized this function to also act as the background color switcher, as a partial check if it is
+        // running properly
+        function autoScreenAndMenuAdjuster(x) {
+            // Gets the variable values in the :root psuedo-class
+            const rootPC = document.querySelector(':root');
+            let rootStyles = getComputedStyle(rootPC);
+            let bgColorMobile = rootStyles.getPropertyValue('--bgColorMobile');
+            let bgColorDesktop = rootStyles.getPropertyValue('--bgColorDesktop');
+
             if (x.matches) { // If media query matches
-                document.body.style.backgroundColor = "";
+                document.body.style.backgroundColor = bgColorMobile;
             } else {
-                document.body.style.backgroundColor = "pink";
+                document.body.style.backgroundColor = bgColorDesktop;
+                // revert back to the original class
                 navMenu.className = 'flex-navbar';
             }
             }
 
-            // Create a MediaQueryList object
-            var x = window.matchMedia("(max-width: 570px)")
+            // Creates a MediaQueryList object
+            let x = window.matchMedia("(max-width: 570px)")
 
-            // Call listener function at run time
-            myFunction(x);
+            // Calls listener function at run time
+            autoScreenAndMenuAdjuster(x);
 
-            // Attach listener function on state changes
+            // Attaches listener function on state changes
             x.addEventListener("change", function() {
-            myFunction(x);
+            autoScreenAndMenuAdjuster(x);
             });
+
     </script>
 </html>
